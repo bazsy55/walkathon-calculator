@@ -1,5 +1,30 @@
 ﻿Public Class formBase
 
+    Private Const SUB_TIER_1_DISTANCE As Decimal = 1000.0
+    Private Const SUB_TIER_2_DISTANCE As Decimal = 600.0
+    Private Const SUB_TIER_3_DISTANCE As Decimal = 400.0
+    Private Const SUB_TIER_4_DISTANCE As Decimal = 200.0
+    Private Const SUB_TIER_5_DISTANCE As Decimal = 100.0
+
+    Private Const EURO_TIER_1_DISTANCE As Decimal = 200.0
+    Private Const EURO_TIER_2_DISTANCE As Decimal = 125.0
+    Private Const EURO_TIER_3_DISTANCE As Decimal = 75.0
+    Private Const EURO_TIER_4_DISTANCE As Decimal = 50.0
+    Private Const EURO_TIER_5_DISTANCE As Decimal = 25.0
+
+    Private Const CHEST_TIER_1_DISTANCE As Decimal = 600.0
+    Private Const CHEST_TIER_2_DISTANCE As Decimal = 400.0
+    Private Const CHEST_TIER_3_DISTANCE As Decimal = 250.0
+    Private Const CHEST_TIER_4_DISTANCE As Decimal = 100.0
+    Private Const CHEST_TIER_5_DISTANCE As Decimal = 25.0
+
+    Private Const BITS_TIER_1_DISTANCE As Decimal = 2.0
+    Private Const BITS_TIER_2_DISTANCE As Decimal = 1.25
+    Private Const BITS_TIER_3_DISTANCE As Decimal = 0.75
+    Private Const BITS_TIER_4_DISTANCE As Decimal = 0.5
+    Private Const BITS_TIER_5_DISTANCE As Decimal = 0.25
+
+
     Private AllKM As Decimal = 0.0D
 
     Private Sub btnStartKM_Click(sender As Object, e As EventArgs) Handles btnStartKM.Click
@@ -31,29 +56,29 @@
     Private Function GetMetersPerItem(type As DonationType, km As Decimal) As Decimal
         Select Case type
             Case DonationType.Sub
-                If km < 5 Then Return 1000.0
-                If km < 15 Then Return 600.0
-                If km < 20 Then Return 400.0
-                If km < 25 Then Return 200.0
-                Return 100.0
+                If km < 5 Then Return SUB_TIER_1_DISTANCE
+                If km < 15 Then Return SUB_TIER_2_DISTANCE
+                If km < 20 Then Return SUB_TIER_3_DISTANCE
+                If km < 25 Then Return SUB_TIER_4_DISTANCE
+                Return SUB_TIER_5_DISTANCE
             Case DonationType.Euro
-                If km < 5 Then Return 200.0
-                If km < 15 Then Return 125.0
-                If km < 20 Then Return 75.0
-                If km < 25 Then Return 50.0
-                Return 25.0
+                If km < 5 Then Return EURO_TIER_1_DISTANCE
+                If km < 15 Then Return EURO_TIER_2_DISTANCE
+                If km < 20 Then Return EURO_TIER_3_DISTANCE
+                If km < 25 Then Return EURO_TIER_4_DISTANCE
+                Return EURO_TIER_5_DISTANCE
             Case DonationType.Chest
-                If km < 5 Then Return 600.0
-                If km < 15 Then Return 400.0
-                If km < 20 Then Return 250.0
-                If km < 25 Then Return 100.0
-                Return 25.0
+                If km < 5 Then Return CHEST_TIER_1_DISTANCE
+                If km < 15 Then Return CHEST_TIER_2_DISTANCE
+                If km < 20 Then Return CHEST_TIER_3_DISTANCE
+                If km < 25 Then Return CHEST_TIER_4_DISTANCE
+                Return CHEST_TIER_5_DISTANCE
             Case DonationType.Bits
-                If km < 5 Then Return 2
-                If km < 15 Then Return 1.25
-                If km < 20 Then Return 0.75
-                If km < 25 Then Return 0.5
-                Return 0.25
+                If km < 5 Then Return BITS_TIER_1_DISTANCE
+                If km < 15 Then Return BITS_TIER_2_DISTANCE
+                If km < 20 Then Return BITS_TIER_3_DISTANCE
+                If km < 25 Then Return BITS_TIER_4_DISTANCE
+                Return BITS_TIER_5_DISTANCE
         End Select
         Return 0
     End Function
