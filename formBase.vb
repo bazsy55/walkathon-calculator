@@ -13,11 +13,9 @@
 
             pnlDonations.Visible = True
             pnlDonations.Enabled = True
-            Return
         Else
             MessageBox.Show("Hibás érték a kezdő kilométerben!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error)
             nudStartKM.Focus()
-            Return
         End If
     End Sub
 
@@ -49,7 +47,7 @@
                 If km < 15 Then Return 400.0
                 If km < 20 Then Return 250.0
                 If km < 25 Then Return 100.0
-                Return 25
+                Return 25.0
             Case DonationType.Bits
                 If km < 5 Then Return 2
                 If km < 15 Then Return 1.25
@@ -93,7 +91,6 @@
     Private Sub btnOtherMinus_Click(sender As Object, e As EventArgs) Handles btnOtherMinus.Click
         If nudOther.Value > AllKM * 1000D Then
             MessageBox.Show("Nem lehet több kilométert levonni, mint amennyi eddig összegyűlt!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return
         Else
             AllKM -= nudOther.Value / 1000D
             nudOther.Value = 0
