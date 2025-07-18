@@ -78,6 +78,7 @@ Partial Class formBase
         ' nudStartKM
         ' 
         nudStartKM.Location = New Point(73, 38)
+        nudStartKM.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         nudStartKM.Name = "nudStartKM"
         nudStartKM.Size = New Size(120, 23)
         nudStartKM.TabIndex = 2
@@ -192,6 +193,7 @@ Partial Class formBase
         ' nudBit
         ' 
         nudBit.Location = New Point(196, 116)
+        nudBit.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         nudBit.Name = "nudBit"
         nudBit.Size = New Size(76, 23)
         nudBit.TabIndex = 9
@@ -217,6 +219,7 @@ Partial Class formBase
         ' nudEuro
         ' 
         nudEuro.Location = New Point(13, 116)
+        nudEuro.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         nudEuro.Name = "nudEuro"
         nudEuro.Size = New Size(76, 23)
         nudEuro.TabIndex = 6
@@ -242,6 +245,7 @@ Partial Class formBase
         ' nudLuckyCheck
         ' 
         nudLuckyCheck.Location = New Point(196, 51)
+        nudLuckyCheck.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         nudLuckyCheck.Name = "nudLuckyCheck"
         nudLuckyCheck.Size = New Size(76, 23)
         nudLuckyCheck.TabIndex = 3
@@ -267,6 +271,7 @@ Partial Class formBase
         ' nudSLSub
         ' 
         nudSLSub.Location = New Point(13, 51)
+        nudSLSub.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         nudSLSub.Name = "nudSLSub"
         nudSLSub.Size = New Size(76, 23)
         nudSLSub.TabIndex = 0

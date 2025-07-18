@@ -23,39 +23,39 @@
 
 
 
-    Private Sub AddDistance(type As String, count As Integer)
-        Dim meterPerItem As Integer = GetMetersPerItem(type, AllKM)
-        Dim totalMeters = meterPerItem * count
+    Private Sub AddDistance(type As DonationType, count As Integer)
+        Dim meterPerItem As Decimal = GetMetersPerItem(type, AllKM)
+        Dim totalMeters As Decimal = meterPerItem * count
         AllKM += totalMeters / 1000.0
         UpdateKMText()
     End Sub
 
-    Private Function GetMetersPerItem(type As String, km As Double) As Integer
+    Private Function GetMetersPerItem(type As DonationType, km As Decimal) As Decimal
         Select Case type
-            Case "sub"
-                If km < 5 Then Return 1000
-                If km < 15 Then Return 600
-                If km < 20 Then Return 400
-                If km < 25 Then Return 200
-                Return 100
-            Case "euro"
-                If km < 5 Then Return 200
-                If km < 15 Then Return 125
-                If km < 20 Then Return 75
-                If km < 25 Then Return 50
+            Case DonationType.Sub
+                If km < 5 Then Return 1000.0
+                If km < 15 Then Return 600.0
+                If km < 20 Then Return 400.0
+                If km < 25 Then Return 200.0
+                Return 100.0
+            Case DonationType.Euro
+                If km < 5 Then Return 200.0
+                If km < 15 Then Return 125.0
+                If km < 20 Then Return 75.0
+                If km < 25 Then Return 50.0
+                Return 25.0
+            Case DonationType.Chest
+                If km < 5 Then Return 600.0
+                If km < 15 Then Return 400.0
+                If km < 20 Then Return 250.0
+                If km < 25 Then Return 100.0
                 Return 25
-            Case "chest"
-                If km < 5 Then Return 600
-                If km < 15 Then Return 400
-                If km < 20 Then Return 250
-                If km < 25 Then Return 100
-                Return 25
-            Case "bits"
-                If km < 5 Then Return 200
-                If km < 15 Then Return 125
-                If km < 20 Then Return 75
-                If km < 25 Then Return 50
-                Return 25
+            Case DonationType.Bits
+                If km < 5 Then Return 2
+                If km < 15 Then Return 1.25
+                If km < 20 Then Return 0.75
+                If km < 25 Then Return 0.5
+                Return 0.25
         End Select
         Return 0
     End Function
@@ -65,22 +65,22 @@
     End Sub
 
     Private Sub btnSLSub_Click(sender As Object, e As EventArgs) Handles btnSLSub.Click
-        AddDistance("sub", CDec(nudSLSub.Value))
+        AddDistance(DonationType.Sub, CInt(nudSLSub.Value))
         nudSLSub.Value = 0
     End Sub
 
     Private Sub btnLuckyCheck_Click(sender As Object, e As EventArgs) Handles btnLuckyCheck.Click
-        AddDistance("chest", CDec(nudLuckyCheck.Value))
+        AddDistance(DonationType.Chest, CInt(nudLuckyCheck.Value))
         nudLuckyCheck.Value = 0
     End Sub
 
     Private Sub btnEuro_Click(sender As Object, e As EventArgs) Handles btnEuro.Click
-        AddDistance("euro", CDec(nudEuro.Value))
+        AddDistance(DonationType.Euro, CInt(nudEuro.Value))
         nudEuro.Value = 0
     End Sub
 
     Private Sub btnBit_Click(sender As Object, e As EventArgs) Handles btnBit.Click
-        AddDistance("bits", CDec(nudBit.Value))
+        AddDistance(DonationType.Bits, CInt(nudBit.Value))
         nudBit.Value = 0
     End Sub
 
